@@ -1,4 +1,3 @@
-import React from "react";
 import type { Product } from "../types/types";
 // import type { CartItem as CartItemType } from "../types/types";
 

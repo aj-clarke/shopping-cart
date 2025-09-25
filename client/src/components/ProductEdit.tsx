@@ -1,6 +1,4 @@
-// import React, { type SyntheticEvent } from "react";
 import type { NewProduct, Product as ProductType } from "../types/types";
-// import { deleteProduct } from "../services/products";
 import Product from "./Product";
 import ProductForm from "./ProductForm";
 

@@ -1,11 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
-import type {
-  // CartItem as CartItemType,
-  NewProduct,
-  Product,
-} from "./types/types";
+import type { NewProduct, Product } from "./types/types";
 import {
   getProducts,
   addProduct,
@@ -14,7 +10,6 @@ import {
   addItemToCart,
   checkout,
 } from "./services/products";
-// import { mockCart } from "../mockData/data";
 
 const App = () => {
   const [products, setProducts] = React.useState<Product[]>([]);

@@ -7,7 +7,6 @@ interface ProductFormProps {
   onAddProduct: (newProduct: NewProduct) => void;
   onEditProduct: (product: Product) => void;
   setEditId: React.Dispatch<React.SetStateAction<string | undefined>>;
-  // onEditProduct: (editProduct: Product) => void; // when editing existing
   isNewProduct: boolean;
 }
 
@@ -53,20 +52,9 @@ const ProductForm = ({
     handleClick();
   };
 
-  // const handleProductTitle = (e: React.SyntheticEvent) => {
-
-  // }
-  // const handleProductPrice = (e: React.SyntheticEvent) => {
-
-  // }
-  // const handleProductQuantity = (e: React.SyntheticEvent) => {
-
-  // }
-
   return (
     <>
       <form>
-        {/* <form method={formMethod} action={apiRoute}> */}
         <div className="input-group">
           <label htmlFor="product-name">Product Name:</label>
           <input

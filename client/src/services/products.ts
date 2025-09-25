@@ -1,6 +1,5 @@
 import axios from "axios";
 import { z } from "zod";
-// import type { Product, NewProduct } from "../types/types";
 import { productSchema, type NewProduct, type Product } from "../types/types";
 
 const allProducts = z.array(productSchema);
@@ -56,13 +55,3 @@ export const checkout = async () => {
     console.log("Checkout Error:", e);
   }
 };
-// export const deleteProduct = async (product: Product) => {
-//   try {
-//     const { data } = await axios.delete(`/api/products/${product._id}`);
-//     console.log(`${product.title} deleted.`);
-//     return data;
-//   } catch (e) {
-//     console.error("Delete failed", e);
-//     throw e;
-//   }
-// };

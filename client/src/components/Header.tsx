@@ -1,4 +1,3 @@
-import React from "react";
 import CartPanel from "./CartPanel";
 // import type { CartItem as CartItemType } from "../types/types";
 import type { Product } from "../types/types";

@@ -1,7 +1,6 @@
 import React from "react";
 import type { NewProduct, Product as ProductType } from "../types/types";
 import Product from "./Product";
-// import ProductAdd from "./ProductAdd";
 import ProductEdit from "./ProductEdit";
 import ProductForm from "./ProductForm";
 
