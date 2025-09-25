@@ -26,13 +26,19 @@ const CartPanel = ({ cart, onCheckout }: CartProps) => {
   return (
     <>
       <table className="cart-items">
-        <thead>
-          <tr>
-            <th scope="col">Item</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
+        {cart.length <= 0 ? (
+          <>Your Cart is Empty!</>
+        ) : (
+          <>
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+          </>
+        )}
         <tbody>{cartItems}</tbody>
         <tfoot>
           <tr>
@@ -43,7 +49,8 @@ const CartPanel = ({ cart, onCheckout }: CartProps) => {
         </tfoot>
       </table>
       <div className="checkout-button">
-        <button className="checkout" onClick={handleCheckout}>
+        <button className="checkout" onClick={handleCheckout}
+        disabled={cart.length <= 0}>
           Checkout
         </button>
       </div>

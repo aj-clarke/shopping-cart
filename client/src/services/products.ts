@@ -11,6 +11,7 @@ export const getProducts = async () => {
     return allProducts.parse(data);
   } catch (e) {
     console.log("Error retrieving product list", e)
+    throw Error;
   } 
 };
 
@@ -48,6 +49,7 @@ try {
   return allProducts.parse(data);
 } catch (e) {
     console.log("Error retrieving cart", e)
+    throw Error;
   } 
 };
 
