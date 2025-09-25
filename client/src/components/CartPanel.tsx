@@ -19,7 +19,9 @@ const CartPanel = ({ cart, onCheckout }: CartProps) => {
     );
   });
 
-  const cartTotal = cart.reduce((total, obj) => total + obj.price, 0);
+  const cartTotal = cart
+    .reduce((total, obj) => total + obj.price * obj.quantity, 0)
+    .toFixed(2);
 
   return (
     <>

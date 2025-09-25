@@ -5,19 +5,31 @@ import { productSchema, type NewProduct, type Product } from "../types/types";
 const allProducts = z.array(productSchema);
 
 export const getProducts = async () => {
-  const { data } = await axios.get("/api/products");
-  console.log(data);
-  return allProducts.parse(data);
+  try {
+    const { data } = await axios.get("/api/products");
+    console.log(data);
+    return allProducts.parse(data);
+  } catch (e) {
+    console.log("Error retrieving product list", e)
+  } 
 };
 
 export const addProduct = async (newProduct: NewProduct) => {
+  try {
   const { data } = await axios.post("/api/products", newProduct);
   return productSchema.parse(data);
+  } catch (e) {
+    console.log("Error adding new product", e)
+  } 
 };
 
 export const editProduct = async (product: Product) => {
+  try {
   const { data } = await axios.put(`/api/products/${product._id}`, product);
   return productSchema.parse(data);
+  } catch (e) {
+    console.log("Error editing product details", e)
+  } 
 };
 
 export const deleteProduct = async (product: Product) => {
@@ -30,9 +42,13 @@ export const deleteProduct = async (product: Product) => {
 };
 
 export const getCartItems = async () => {
+try {
   const { data } = await axios.get("/api/cart");
   console.log(data);
   return allProducts.parse(data);
+} catch (e) {
+    console.log("Error retrieving cart", e)
+  } 
 };
 
 export const addItemToCart = async (product: Product) => {
