@@ -10,6 +10,7 @@ interface ProductProps {
   onAddToCart: (product: ProductType) => void;
   onAddProduct: (newProduct: NewProduct) => void;
   setIsAddProductVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  onDelete: (product: ProductType) => void;
 }
 
 const ProductEdit = ({
@@ -20,6 +21,7 @@ const ProductEdit = ({
   onAddToCart,
   onAddProduct,
   setIsAddProductVisible,
+  onDelete,
 }: ProductProps) => {
   return (
     <>
@@ -28,6 +30,7 @@ const ProductEdit = ({
         setEditId={setEditId}
         onFetchProducts={onFetchProducts}
         onAddToCart={onAddToCart}
+        onDelete={onDelete}
       />
       <div className="edit-form">
         <div>

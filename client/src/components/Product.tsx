@@ -1,5 +1,5 @@
 import type { SyntheticEvent } from "react";
-import { deleteProduct } from "../services/products";
+// import { deleteProduct } from "../services/products";
 import type { Product as ProductType } from "../types/types";
 
 interface ProductProps {
@@ -7,6 +7,7 @@ interface ProductProps {
   setEditId: React.Dispatch<React.SetStateAction<string | undefined>>;
   onFetchProducts: () => void;
   onAddToCart: (product: ProductType) => void;
+  onDelete: (product: ProductType) => void;
 }
 
 const Product = ({
@@ -14,6 +15,7 @@ const Product = ({
   setEditId,
   onFetchProducts,
   onAddToCart,
+  onDelete
 }: ProductProps) => {
   const handleClick = () => {
     setEditId(product._id);
@@ -21,7 +23,7 @@ const Product = ({
 
   const handleDelete = async (e: SyntheticEvent) => {
     e.preventDefault();
-    await deleteProduct(product);
+    onDelete(product);
     setEditId(undefined);
     onFetchProducts();
   };

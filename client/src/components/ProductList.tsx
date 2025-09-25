@@ -10,6 +10,7 @@ interface ProductListProps {
   onEditProduct: (product: ProductType) => void;
   onFetchProducts: () => void;
   onAddToCart: (product: ProductType) => void;
+  onDelete: (product: ProductType) => void;
 }
 
 const ProductList = ({
@@ -18,6 +19,7 @@ const ProductList = ({
   onEditProduct,
   onFetchProducts,
   onAddToCart,
+  onDelete,
 }: ProductListProps) => {
   const [isAddProductVisible, setIsAddProductVisible] =
     React.useState<boolean>(false);
@@ -39,6 +41,7 @@ const ProductList = ({
             onAddToCart={onAddToCart}
             onAddProduct={onAddProduct}
             setIsAddProductVisible={setIsAddProductVisible}
+            onDelete={onDelete}
           />
         </li>
       );
@@ -50,6 +53,7 @@ const ProductList = ({
           setEditId={setEditId}
           onFetchProducts={onFetchProducts}
           onAddToCart={onAddToCart}
+          onDelete={onDelete}
         />
       </li>
     );

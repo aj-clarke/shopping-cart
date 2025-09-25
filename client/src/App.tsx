@@ -9,6 +9,7 @@ import {
   getCartItems,
   addItemToCart,
   checkout,
+  deleteProduct,
 } from "./services/products";
 
 const App = () => {
@@ -61,12 +62,24 @@ const App = () => {
       console.log(e);
     }
   };
+
+  const handleDelete = async (product: Product) => {
+    try {
+      await deleteProduct(product);
+      fetchProducts();
+      fetchCart();
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   const handleAddToCart = async (product: Product) => {
     const { data } = await addItemToCart(product);
     console.log(data);
     fetchProducts();
     fetchCart();
   };
+
   const handleCheckout = async () => {
     await checkout();
     await fetchProducts();
@@ -82,6 +95,7 @@ const App = () => {
         onEditProduct={handleEditProduct}
         onFetchProducts={handleFetchProducts}
         onAddToCart={handleAddToCart}
+        onDelete={handleDelete}
       />
     </div>
   );
