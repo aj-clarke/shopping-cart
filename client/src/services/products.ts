@@ -38,10 +38,11 @@ export const getCartItems = async () => {
 
 export const addItemToCart = async (product: Product) => {
   try {
-    const { data } = await axios.post("/api/add-to-cart",
-      { productId: product._id});
-    console.log(data)
-    return data
+    const { data } = await axios.post("/api/add-to-cart", {
+      productId: product._id,
+    });
+    console.log(data);
+    return data;
   } catch (e) {
     console.log("Error adding item to cart", e);
   }
@@ -49,12 +50,12 @@ export const addItemToCart = async (product: Product) => {
 
 export const checkout = async () => {
   try {
-    await axios.post('/api/checkout')
-    console.log('Checked Out')
+    await axios.post("/api/checkout");
+    console.log("Checked Out");
   } catch (e) {
-    console.log("Checkout Error:", e)
+    console.log("Checkout Error:", e);
   }
-}
+};
 // export const deleteProduct = async (product: Product) => {
 //   try {
 //     const { data } = await axios.delete(`/api/products/${product._id}`);

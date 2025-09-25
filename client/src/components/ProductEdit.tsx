@@ -23,7 +23,6 @@ const ProductEdit = ({
   onAddProduct,
   setIsAddProductVisible,
 }: ProductProps) => {
-
   return (
     <>
       <Product

@@ -7,9 +7,11 @@ export const productSchema = z.object({
   price: z.number(),
 });
 
-export const newProductSchema = productSchema.omit({
-  _id: true,
-}).loose();
+export const newProductSchema = productSchema
+  .omit({
+    _id: true,
+  })
+  .loose();
 
 export interface Test {
   _id: string;

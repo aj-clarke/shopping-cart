@@ -1,4 +1,3 @@
-// import type { CartItem as CartItemType } from "../types/types";
 import type { Product } from "../types/types";
 import CartItem from "./CartItem";
 

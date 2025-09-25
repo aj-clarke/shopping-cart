@@ -47,10 +47,6 @@ const App = () => {
   const handleFetchProducts = async () => {
     await fetchProducts();
   };
-  
-  const handleFetchCart = async () => {
-    await fetchCart();
-  };
 
   const handleAddProduct = async (newProduct: NewProduct) => {
     try {
@@ -77,9 +73,9 @@ const App = () => {
     fetchCart();
   };
   const handleCheckout = async () => {
-    checkout();
-    fetchProducts();
-    fetchCart();
+    await checkout();
+    await fetchProducts();
+    await fetchCart();
   };
 
   return (
@@ -89,7 +85,7 @@ const App = () => {
         products={products}
         onAddProduct={handleAddProduct}
         onEditProduct={handleEditProduct}
-        onFetchProducts={fetchProducts}
+        onFetchProducts={handleFetchProducts}
         onAddToCart={handleAddToCart}
       />
     </div>

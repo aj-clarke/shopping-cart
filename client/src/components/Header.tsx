@@ -8,7 +8,7 @@ interface HeaderProps {
   onCheckout: () => void;
 }
 
-const Header = ({ cart, onCheckout}: HeaderProps) => {
+const Header = ({ cart, onCheckout }: HeaderProps) => {
   return (
     <header>
       <h1>The Shop!</h1>
