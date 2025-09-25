@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 mongoose
-  .connect(process.env.DB, {
+  .connect(process.env.MONGO_DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
