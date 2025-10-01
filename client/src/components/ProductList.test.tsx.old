@@ -1,0 +1,50 @@
+import ProductList from "./ProductList";
+import ProductForm from "./ProductForm";
+
+import { describe, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom";
+
+it("Contains 'Add a Product' button", async () => {
+  const user = userEvent.setup();
+
+  const mockProducts = [
+    {
+      _id: "0",
+      title: "Watch",
+      price: 99.99,
+      quantity: 5,
+    },
+  ];
+
+  const anonFuncs = () => {};
+
+  render(
+    <ProductList
+      products={mockProducts}
+      onAddProduct={anonFuncs}
+      onEditProduct={anonFuncs}
+      onFetchProducts={anonFuncs}
+      onAddToCart={anonFuncs}
+      onDelete={anonFuncs}
+    />
+  );
+
+  let addButton = screen.getByRole("button", { name: /Add a Product/i });
+  expect(addButton).toBeVisible();
+  screen.debug();
+  await user.click(addButton);
+
+  const cancelButton = screen.getByRole("button", { name: /Cancel/i });
+  expect(cancelButton).toBeVisible();
+  screen.debug();
+  await user.click(cancelButton);
+  
+  screen.debug();
+  addButton = screen.getByRole("button", { name: /Add a Product/i });
+  expect(addButton).toBeVisible();
+  // expect(addButton).toBeVisible();
+
+  // render(<ProductForm /> )
+});

@@ -27,7 +27,11 @@ const CartPanel = ({ cart, onCheckout }: CartProps) => {
     <>
       <table className="cart-items">
         {cart.length <= 0 ? (
-          <>Your Cart is Empty!</>
+          <tbody>
+            <tr>
+              <td>Your Cart is Empty!</td>
+            </tr>
+          </tbody>
         ) : (
           <>
             <thead>
@@ -49,8 +53,11 @@ const CartPanel = ({ cart, onCheckout }: CartProps) => {
         </tfoot>
       </table>
       <div className="checkout-button">
-        <button className="checkout" onClick={handleCheckout}
-        disabled={cart.length <= 0}>
+        <button
+          className="checkout"
+          onClick={handleCheckout}
+          disabled={cart.length <= 0}
+        >
           Checkout
         </button>
       </div>

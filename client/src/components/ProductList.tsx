@@ -3,6 +3,7 @@ import type { NewProduct, Product as ProductType } from "../types/types";
 import Product from "./Product";
 import ProductEdit from "./ProductEdit";
 import ProductForm from "./ProductForm";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 interface ProductListProps {
   products: ProductType[];
@@ -25,9 +26,20 @@ const ProductList = ({
     React.useState<boolean>(false);
   const [editId, setEditId] = React.useState<string | undefined>(undefined);
 
+  // React.useEffect(() => {
+  // pass setter function for product, set to `product`
+  // }, [product.quantity])
   const handleClick = () => {
     setIsAddProductVisible((prev) => !prev);
   };
+
+  const themeContext = React.useContext(ThemeContext);
+
+  if (!themeContext) {
+    throw new Error("ThemeContext must be used within a ThemeProvider");
+  }
+
+  const { theme } = themeContext;
 
   const productList = products.map((product) => {
     if (product._id === editId) {
@@ -47,7 +59,11 @@ const ProductList = ({
       );
     }
     return (
-      <li className="product" key={product._id}>
+      <li
+        style={{ backgroundColor: theme === "light" ? "" : "lightgrey" }}
+        className="product"
+        key={product._id}
+      >
         <Product
           product={product}
           setEditId={setEditId}
@@ -60,10 +76,15 @@ const ProductList = ({
   });
 
   return (
-    <main>
+    <main style={{ backgroundColor: theme === "light" ? "" : "darkgrey" }}>
       <div className="product-listing">
         <h2>Products</h2>
-        <ul className="product-list">{productList}</ul>
+        <ul
+          style={{ backgroundColor: theme === "light" ? "" : "darkgrey" }}
+          className="product-list"
+        >
+          {productList}
+        </ul>
       </div>
 
       {isAddProductVisible ? (

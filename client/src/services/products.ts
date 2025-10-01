@@ -58,7 +58,7 @@ export const addItemToCart = async (product: Product) => {
     const { data } = await axios.post("/api/add-to-cart", {
       productId: product._id,
     });
-    console.log(data);
+    console.log('data', data);
     return data;
   } catch (e) {
     console.log("Error adding item to cart", e);
